@@ -1,0 +1,45 @@
+import json
+
+def lambda_handler(event, context):
+    # TODO implement
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Hello from Lambda!')
+    }
+
+import sys
+import smtplib
+
+# Amazon SES
+USER='AKIAZJTHF5V3432T6SWN'
+PASS='BBHYj3Spd+sSRNgk9qPuVU1+vGcbIApe2s0XxyN+kLEv'
+SMTP_HOST='email-smtp.ue-west-1.amazonaws.com'
+SMTP_PORT=587
+
+# Send email
+sent_from = 'jose-manuel.sanchez@soprasteria.com'
+to = [ 'dsi.gdt.sma.web.50@enagas.es' ]
+subject = 'Hello, test email'
+body = "Thist is test!"
+email_text = """From: %s  
+To: %s  
+Subject: %s
+
+%s
+""" % (sent_from, ", ".join(to), subject, body)
+
+def main(argv):
+    try:
+        server = smtplib.SMTP(SMTP_HOST, SMTP_PORT)
+        server.ehlo()
+        server.starttls()
+        server.login(USER, PASS)
+        server.sendmail(sent_from, to, email_text)
+        server.close()
+        print('Email sent!')
+    except Exception as e:
+        print('Something with SMTP went wrong...')
+        print(e)
+
+if __name__ == "__main__":
+    main(sys.argv)
