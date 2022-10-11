@@ -11,8 +11,8 @@ import sys
 import smtplib
 
 # Amazon SES
-USER='AKIAZJTHF5V3432T6SWN'
-PASS='BBHYj3Spd+sSRNgk9qPuVU1+vGcbIApe2s0XxyN+kLEv'
+USER= $USER
+PASS=~$PASS
 SMTP_HOST='email-smtp.ue-west-1.amazonaws.com'
 SMTP_PORT=587
 
