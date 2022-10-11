@@ -17,8 +17,8 @@ SMTP_HOST='email-smtp.ue-west-1.amazonaws.com'
 SMTP_PORT=587
 
 # Send email
-sent_from = 'jose-manuel.sanchez@soprasteria.com'
-to = [ 'dsi.gdt.sma.web.50@enagas.es' ]
+sent_from = 'zzzzz@xxxx.com'
+to = [ 'xxxxxx@sssssss.es' ]
 subject = 'Hello, test email'
 body = "Thist is test!"
 email_text = """From: %s  
